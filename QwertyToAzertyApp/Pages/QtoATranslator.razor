@@ -1,0 +1,27 @@
+@page "/translator"
+@using QwertyToAzertyApp.Models
+
+<h3>QWERTY to AZERTY App</h3>
+
+<div>
+    <label for="inputText">Enter QWERTY text:</label>
+    <input @bind="inputText" id="inputText" />
+    <button @onclick="TranslateText">Translate</button>
+</div>
+
+@if (!string.IsNullOrEmpty(translatedText))
+{
+    <p></p>
+    <h4>Translated AZERTY text:</h4>
+    <p>@translatedText</p>
+}
+
+@code {
+    private string inputText;
+    private string translatedText;
+
+    private void TranslateText()
+    {
+        translatedText = Translator.TranslateToAzerty(inputText);
+    }
+}
