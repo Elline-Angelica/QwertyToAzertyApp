@@ -5,8 +5,10 @@ public static class Translator
 {
     private static readonly Dictionary<char, char> QwertyToAzertyMap = new()
     {
-        { 'a', 'q' }, { 'q', 'a' }, { 'z', 'w' }, { 'w', 'z' },
-        { 'm', ',' }, { ';', 'm' },{'<','.'} // Add more mappings as needed
+        { 'a', 'q' }, { 'A', 'Q' }, { 'q', 'a' }, { 'Q', 'A' },
+        { 'z', 'w' }, { 'Z', 'W' }, { 'w', 'z' }, { 'W', 'Z' },
+        { 'm', ',' }, { 'M', '?' }, { ';', 'm' }, { ':', 'M' },
+        { '<', '.' }, { '>', '/' }, {',', '.'} // Add more mappings as needed
         // Add mappings for uppercase letters and symbols if needed
     };
 
