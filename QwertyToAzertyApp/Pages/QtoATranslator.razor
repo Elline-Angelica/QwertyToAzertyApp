@@ -5,14 +5,14 @@
 
 <div>
     <label for="inputText">Enter QWERTY text:</label>
-    <input @bind="inputText" id="inputText" />
+    <input @bind="inputText" id="inputText" @onkeydown="HandleKeyPress" />
     <button @onclick="TranslateText">Translate</button>
 </div>
 
 @if (!string.IsNullOrEmpty(translatedText))
 {
     <p></p>
-    <h4>Translated AZERTY text:</h4>
+    <h4>Translated text:</h4>
     <p>@translatedText</p>
 }
 
@@ -23,5 +23,13 @@
     private void TranslateText()
     {
         translatedText = Translator.TranslateToAzerty(inputText);
+    }
+
+    private void HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !string.IsNullOrEmpty(inputText))
+        {
+            TranslateText();
+        }
     }
 }
